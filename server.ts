@@ -14,6 +14,10 @@ mongoose.connect(process.env.DB_URI, {
   pass: process.env.DB_PASS,
 });
 
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.listen(port, () => {
   console.log(`Pocket Pick-Up listening on port ${port}`);
 });

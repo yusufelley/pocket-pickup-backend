@@ -17,11 +17,6 @@ mongoose_1.default.connect(process.env.DB_URI, {
     user: "pocket-pickup-user",
     pass: process.env.DB_PASS,
 });
-const events_1 = __importDefault(require("./models/events"));
-const e = new events_1.default({ name: "test1", sport: "ball" });
-e.save()
-    .then((r) => console.log("y", r))
-    .catch((err) => console.log("e", err));
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
