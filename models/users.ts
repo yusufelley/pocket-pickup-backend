@@ -15,6 +15,7 @@ const userSchema = new Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     profilePicURL: {
       type: String,
@@ -24,6 +25,6 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-const Event = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
-export default Event;
+export default User;
