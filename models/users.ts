@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import UserService from "../utils/db-services/db.user-services";
+
 const Schema = mongoose.Schema;
 
 // Subject To Change Test Schema
@@ -27,4 +29,4 @@ const userSchema = new Schema(
 
 const User = mongoose.model("User", userSchema);
 
-export default User;
+export default UserService(User);

@@ -20,7 +20,7 @@ const getUserByEmail =
     return await User.findOne({ email });
   };
 
-module.exports = (User) => {
+export default (User) => {
   return {
     addGoogleUser: addUser(User),
     getUsers: getAllUsers(User),
