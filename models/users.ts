@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import UserService from "../utils/db-services/db.user-services";
 
 const Schema = mongoose.Schema;
 
@@ -29,4 +28,4 @@ const userSchema = new Schema(
 
 const User = mongoose.model("User", userSchema);
 
-export default UserService(User);
+export default User;

@@ -1,29 +1,28 @@
-const addUser =
-  (User) =>
-  ({ fname, lname, email, profilePicURL }) => {
-    const user = new User({
-      fname,
-      lname,
-      email,
-      profilePicURL,
-    });
-    return user.save();
-  };
+import User from "../../models/users";
 
-const getAllUsers = (User) => () => {
+type userInfo = {
+  fname: string;
+  lname: string;
+  email: string;
+  profilePicURL?: string;
+};
+
+const addUser = ({ fname, lname, email, profilePicURL }: userInfo) => {
+  const user = new User({
+    fname,
+    lname,
+    email,
+    profilePicURL,
+  });
+  return user.save();
+};
+
+const getAllUsers = () => {
   return User.find({});
 };
 
-const getUserByEmail =
-  (User) =>
-  async ({ email }) => {
-    return await User.findOne({ email });
-  };
-
-export default (User) => {
-  return {
-    addGoogleUser: addUser(User),
-    getUsers: getAllUsers(User),
-    getUserByEmail: getUserByEmail(User),
-  };
+const getUserByEmail = (email: string) => {
+  return User.findOne({ email });
 };
+
+export default { addUser, getAllUsers, getUserByEmail };
