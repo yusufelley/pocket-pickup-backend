@@ -12,6 +12,18 @@ const eventSchema = new Schema(
       type: String,
       required: true,
     },
+    duration: {
+      type: Number,
+      required: true
+    },
+    location: {
+      type: String,
+      required: true
+    },
+    coming: {
+      type: Array,
+      required: false
+    }
   },
   { timestamps: true }
 );
