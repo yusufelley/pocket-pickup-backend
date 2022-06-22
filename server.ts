@@ -6,6 +6,8 @@ import { UserAuthRequest } from "./custom";
 import loadUser from "./middlewares/auth/loadUser";
 import https from "https";
 import fs from "fs";
+import Event from "./models/events";
+
 // access environment variables
 dotenv.config();
 // https credentials
@@ -25,6 +27,7 @@ mongoose.connect(process.env.DB_URI, {
   user: "pocket-pickup-user",
   pass: process.env.DB_PASS,
 });
+
 // User Auth
 app.use(loadUser);
 
