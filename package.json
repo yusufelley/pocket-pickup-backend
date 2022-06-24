@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/server.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "start": "node --loader ts-node/esm ./my-script.ts",
+    "start": "node ./app/dist/index.js",
     "postinstall": "tsc",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
