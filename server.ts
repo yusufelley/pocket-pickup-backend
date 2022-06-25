@@ -32,7 +32,7 @@ app.get("/", (req: UserAuthRequest, res) => {
   res.send(`Hello, ${req.user.fname}`);
 });
 
-app.get("/user", (req: UserAuthRequest, res) => {
+app.post("/user", (req: UserAuthRequest, res) => {
   res.send(req.user);
 });
 
