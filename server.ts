@@ -14,7 +14,6 @@ const certificate = fs.readFileSync("./cert.pem", "utf8");
 const credentials = { key: privateKey, cert: certificate };
 // create express app
 const app = express();
-const httpsServer = https.createServer(credentials, app);
 const port = process.env.PORT || 5000;
 // parse incoming requests as JSON
 app.use(express.json());
@@ -37,6 +36,6 @@ app.get("/user", (req: UserAuthRequest, res) => {
   res.send(req.user);
 });
 
-httpsServer.listen(port, () => {
+app.listen(port, () => {
   console.log(`Pocket Pick-Up listening on port ${port}`);
 });
