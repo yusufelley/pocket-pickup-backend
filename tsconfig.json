@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "module": "commonjs",
+    "module": "es6",
     "esModuleInterop": true,
     "target": "es6",
     "noImplicitAny": true,
@@ -12,6 +12,9 @@
     "paths": {
       "*": ["node_modules/*"]
     }
+  },
+  "ts-node": {
+    "esm": true
   },
   "include": ["./server.ts", "custom.d.ts"] // specifies what .ts files to compile
 }
