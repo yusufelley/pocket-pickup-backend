@@ -11,6 +11,7 @@ const verify = async (token) => {
 };
 
 export const loadUser = (req, res, next) => {
+  console.log("Attempting to verify token:", req.body.token);
   verify(req.body.token)
     .then((payload) => {
       console.log(`${payload.email} has been authenticated`);
