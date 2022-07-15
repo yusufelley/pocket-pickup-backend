@@ -37,6 +37,10 @@ app.get("/user", (req: UserAuthRequest, res) => {
   res.send(req.user);
 });
 
+// app.get("/getEvents", (req,res) => {
+  
+// });
+
 httpsServer.listen(port, () => {
   console.log(`Pocket Pick-Up listening on port ${port}`);
 });
