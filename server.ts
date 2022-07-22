@@ -38,7 +38,7 @@ app.get("/user", (req: UserAuthRequest, res) => {
 });
 
 // app.get("/getEvents", (req,res) => {
-  
+
 // });
 
 httpsServer.listen(port, () => {
