@@ -1,14 +1,10 @@
 import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import { ModuleResolutionKind } from "typescript";
 
 // Subject To Change Test Schema
-const eventSchema = new Schema(
+const eventSchema = new mongoose.Schema(
   {
     name: {
-      type: String,
-      required: true,
-    },
-    sport: {
       type: String,
       required: true,
     },
@@ -16,12 +12,24 @@ const eventSchema = new Schema(
       type: Number,
       required: true
     },
+    time: {
+      type: Array,
+      required: true
+    },
     location: {
       type: String,
       required: true
     },
     coming: {
-      type: Array,
+      type: Number,
+      required: false
+    },
+    here: {
+      type: Number,
+      required: false
+    },
+    description: {
+      type: String,
       required: false
     }
   },
