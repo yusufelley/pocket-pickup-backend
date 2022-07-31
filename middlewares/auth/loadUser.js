@@ -7,6 +7,7 @@ const verify = async (token) => {
     idToken: token,
     audience: process.env.CLIENT_ID,
   });
+  console.log(process.env.CLIENT_ID);
   return ticket.getPayload();
 };
 
