@@ -10,7 +10,7 @@ import Event from "./models/events";
 dotenv.config();
 // create express app
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 // parse incoming requests as JSON
 app.use(express.json());
 app.use(cors()); // Needed for dev
