@@ -12,7 +12,7 @@ const verify = async (token) => {
 };
 
 export const loadUser = (req, res, next) => {
-  console.log("Attempting to verify token:", req.body.token);
+  console.log("Attempting to verify token:", req.body);
   verify(req.body.token)
     .then((payload) => {
       console.log(`${payload.email} has been authenticated`);
@@ -56,7 +56,7 @@ export const loadUser = (req, res, next) => {
     })
     .catch((err) => {
       console.log("ERROR validating JWT", err);
-      res.send("An error has occured the user could not be authenticated");
+      res.send("An erroR has occured the user could not be authenticated");
     });
 };
 

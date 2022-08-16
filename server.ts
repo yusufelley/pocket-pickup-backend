@@ -12,8 +12,10 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 // parse incoming requests as JSON
+//app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors()); // Needed for dev
+
 // establish db connection
 mongoose.connect(process.env.DB_URI, {
   dbName: "pocket-pickup-db",
