@@ -5,7 +5,7 @@ import cors from "cors";
 import { UserAuthRequest } from "./custom";
 import loadUser from "./middlewares/auth/loadUser";
 import Event from "./models/events";
-const userRouter = require('./routes/users');
+import userRouter from './routes/users';
 
 // access environment variables
 dotenv.config();
