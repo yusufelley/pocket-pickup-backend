@@ -5,6 +5,7 @@ import cors from "cors";
 import { UserAuthRequest } from "./custom";
 import loadUser from "./middlewares/auth/loadUser";
 import Event from "./models/events";
+const userRouter = require('./routes/users');
 
 // access environment variables
 dotenv.config();
@@ -12,7 +13,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 // parse incoming requests as JSON
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors()); // Needed for dev
 
@@ -30,7 +31,7 @@ app.get("/", (req: UserAuthRequest, res) => {
   res.send(`Hello, ${req.user.fname}`);
 });
 
-app.get("/create_event", (req, res) => {
+app.post("/create_event", (req, res) => {
   const newEvent = new Event({
     name: req.body.name,
     duration: req.body.duration,
@@ -38,14 +39,12 @@ app.get("/create_event", (req, res) => {
     location: req.body.location
   });
 
-  newEvent.save().then();
-  res.send(newEvent);
+  newEvent.save().then((result: any) => { res.send(newEvent) }).catch((err: any) => { console.log(err) });
 });
 
-app.post("/user", (req: UserAuthRequest, res) => {
-  res.send(req.user);
-});
+app.use('/user', userRouter);
 
 app.listen(port, () => {
   console.log(`Pocket Pick-Up listening on port ${port}`);
 });
+

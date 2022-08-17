@@ -56,7 +56,7 @@ export const loadUser = (req, res, next) => {
     })
     .catch((err) => {
       console.log("ERROR validating JWT", err);
-      res.send("An erroR has occured the user could not be authenticated");
+      res.send("An error has occured the user could not be authenticated");
     });
 };
 
