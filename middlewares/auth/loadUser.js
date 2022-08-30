@@ -43,7 +43,7 @@ export const loadUser = (req, res, next) => {
               .catch((err) => {
                 console.log("ERROR getting new user from DB", err);
                 res.send(
-                  "An error has occured the user could not be loaded from DB"
+                  "An error has occured, the user could not be loaded from DB"
                 );
               });
           }
@@ -51,12 +51,14 @@ export const loadUser = (req, res, next) => {
         })
         .catch((err) => {
           console.log("ERROR getting user in DB", err);
-          res.send("An error has occured the user could not be loaded from DB");
+          res.send(
+            "An error has occured, the user could not be loaded from DB"
+          );
         });
     })
     .catch((err) => {
       console.log("ERROR validating JWT", err);
-      res.send("An error has occured the user could not be authenticated");
+      res.send("An error has occured, the user could not be authenticated");
     });
 };
 

@@ -5,7 +5,7 @@ import cors from "cors";
 import { UserAuthRequest } from "./custom";
 import loadUser from "./middlewares/auth/loadUser";
 import Event from "./models/events";
-import userRouter from './routes/users';
+import userRouter from "./routes/users";
 
 // access environment variables
 dotenv.config();
@@ -31,20 +31,26 @@ app.get("/", (req: UserAuthRequest, res) => {
   res.send(`Hello, ${req.user.fname}`);
 });
 
+app.use("/user", userRouter);
+
 app.post("/create_event", (req, res) => {
   const newEvent = new Event({
     name: req.body.name,
     duration: req.body.duration,
     time: req.body.time,
-    location: req.body.location
+    location: req.body.location,
   });
 
-  newEvent.save().then((result: any) => { res.send(newEvent) }).catch((err: any) => { console.log(err) });
+  newEvent
+    .save()
+    .then((result: any) => {
+      res.send(newEvent);
+    })
+    .catch((err: any) => {
+      console.log(err);
+    });
 });
-
-app.use('/user', userRouter);
 
 app.listen(port, () => {
   console.log(`Pocket Pick-Up listening on port ${port}`);
 });
-
