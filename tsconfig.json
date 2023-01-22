@@ -4,6 +4,7 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es6",
+    "watch" : true,
     "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": true,

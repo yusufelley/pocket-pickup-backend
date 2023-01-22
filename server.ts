@@ -6,6 +6,9 @@ import { UserAuthRequest } from "./custom";
 import loadUser from "./middlewares/auth/loadUser";
 import Event from "./models/events";
 import userRouter from "./routes/users";
+import connectDB from './configs/db';
+var colors = require('colors');
+
 
 // access environment variables
 dotenv.config();
@@ -18,11 +21,7 @@ app.use(express.json());
 app.use(cors()); // Needed for dev
 
 // establish db connection
-mongoose.connect(process.env.DB_URI, {
-  dbName: "pocket-pickup-db",
-  user: "pocket-pickup-user",
-  pass: process.env.DB_PASS,
-});
+connectDB();
 
 // User Auth
 app.use(loadUser);
