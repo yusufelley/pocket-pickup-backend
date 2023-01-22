@@ -5,7 +5,7 @@ import cors from "cors";
 import { UserAuthRequest } from "./custom";
 import loadUser from "./middlewares/auth/loadUser";
 import Event from "./models/events";
-import userRouter from "./routes/users";
+import userRouter from "./routes/userRoutes";
 import connectDB from './configs/db';
 var colors = require('colors');
 
